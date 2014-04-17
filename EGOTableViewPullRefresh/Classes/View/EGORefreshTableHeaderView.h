@@ -28,22 +28,22 @@
 #import <QuartzCore/QuartzCore.h>
 
 typedef enum{
-	EGOOPullRefreshPulling = 0,
-	EGOOPullRefreshNormal,
-	EGOOPullRefreshLoading,	
+    EGOOPullRefreshPulling = 0,
+    EGOOPullRefreshNormal,
+    EGOOPullRefreshLoading,
 } EGOPullRefreshState;
 
 @protocol EGORefreshTableHeaderDelegate;
 @interface EGORefreshTableHeaderView : UIView {
-	
-	id _delegate;
-	EGOPullRefreshState _state;
 
-	UILabel *_lastUpdatedLabel;
-	UILabel *_statusLabel;
-	CALayer *_arrowImage;
-	UIActivityIndicatorView *_activityView;
-	
+    id _delegate;
+    EGOPullRefreshState _state;
+
+    UILabel *_lastUpdatedLabel;
+    UILabel *_statusLabel;
+    CALayer *_arrowImage;
+    UIActivityIndicatorView *_activityView;
+
 
 }
 
@@ -62,4 +62,6 @@ typedef enum{
 - (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view;
 @optional
 - (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view;
+- (void)egoRefreshTableHeaderConfigureLabel:(UILabel*)statusLabel forState:(EGOPullRefreshState)state;
+
 @end
